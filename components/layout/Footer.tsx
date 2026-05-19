@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import Logo from '@/components/ui/Logo';
 import { Instagram, MessageCircle, Mail, MapPin, Phone, Facebook, Youtube } from 'lucide-react';
@@ -6,28 +7,28 @@ const sections = [
   {
     title: 'Jelajahi',
     links: [
-      { label: 'Beranda', href: '#' },
-      { label: 'Paket Wisata', href: '#packages' },
-      { label: 'AI Advisor', href: '#ai-advisor' },
-      { label: 'Testimoni', href: '#testimonials' },
+      { label: 'Beranda', href: '/' },
+      { label: 'Paket Wisata', href: '/paket' },
+      { label: 'AI Advisor', href: '/trip-advisor' },
+      { label: 'Booking', href: '/booking' },
     ],
   },
   {
     title: 'Kategori',
     links: [
-      { label: 'Candi & Budaya', href: '#' },
-      { label: 'Alam & Adventure', href: '#' },
-      { label: 'Kuliner Jogja', href: '#' },
-      { label: 'Pantai Selatan', href: '#' },
+      { label: 'Candi & Budaya', href: '/paket' },
+      { label: 'Alam & Adventure', href: '/paket' },
+      { label: 'Kuliner Jogja', href: '/paket' },
+      { label: 'Pantai Selatan', href: '/paket' },
     ],
   },
   {
     title: 'Bantuan',
     links: [
-      { label: 'FAQ', href: '#faq' },
-      { label: 'Cara Booking', href: '#how-it-works' },
-      { label: 'Kebijakan Privasi', href: '#' },
-      { label: 'Syarat & Ketentuan', href: '#' },
+      { label: 'FAQ', href: '/#faq' },
+      { label: 'Cara Booking', href: '/#how-it-works' },
+      { label: 'Admin', href: '/admin/login' },
+      { label: 'Testimoni', href: '/#testimonials' },
     ],
   },
 ];
@@ -48,7 +49,12 @@ export default function Footer() {
               rekomendasi paket yang dipersonalisasi sesuai kebutuhan Anda.
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-stone-400">
-              <a href="#" className="flex items-center gap-2.5 hover:text-white transition-colors">
+              <a
+                href="https://wa.me/6281234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 hover:text-white transition-colors"
+              >
                 <Phone className="h-4 w-4 text-brand-400" />
                 +62 812-3456-7890
               </a>
@@ -66,14 +72,16 @@ export default function Footer() {
             </div>
             <div className="mt-6 flex gap-2">
               {[
-                { Icon: Instagram, label: 'Instagram' },
-                { Icon: MessageCircle, label: 'WhatsApp' },
-                { Icon: Facebook, label: 'Facebook' },
-                { Icon: Youtube, label: 'YouTube' },
-              ].map(({ Icon, label }) => (
+                { Icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
+                { Icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/6281234567890' },
+                { Icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
+                { Icon: Youtube, label: 'YouTube', href: 'https://youtube.com' },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="grid h-10 w-10 place-items-center rounded-full bg-stone-800 text-stone-300 hover:bg-brand-800 hover:text-white transition-all hover:-translate-y-0.5"
                 >
@@ -92,12 +100,12 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5 text-sm">
                   {s.links.map((l) => (
                     <li key={l.label}>
-                      <a
+                      <Link
                         href={l.href}
                         className="text-stone-400 hover:text-white transition-colors"
                       >
                         {l.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

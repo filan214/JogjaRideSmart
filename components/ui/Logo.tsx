@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 export default function Logo({
@@ -8,8 +9,8 @@ export default function Logo({
   variant?: 'default' | 'light';
 }) {
   return (
-    <a
-      href="#"
+    <Link
+      href="/"
       className={cn('group flex items-center gap-2.5', className)}
       aria-label="Jogja Ride beranda"
     >
@@ -27,6 +28,6 @@ export default function Logo({
       >
         <span className="italic">Jogja</span> Ride
       </span>
-    </a>
+    </Link>
   );
 }

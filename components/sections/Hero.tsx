@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Sparkles, Star, ArrowRight, MapPin, Calendar, Users, Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
 
 export default function Hero() {
   return (
@@ -75,14 +75,20 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
-              <Button size="lg" className="group">
+              <Link
+                href="/trip-advisor"
+                className="group inline-flex h-14 items-center justify-center gap-2 rounded-full bg-brand-800 px-7 text-base font-semibold text-white shadow-lg shadow-brand-900/20 transition-all hover:bg-brand-900 hover:-translate-y-0.5"
+              >
                 <Sparkles className="h-4 w-4" />
                 Mulai dengan AI
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline">
+              </Link>
+              <Link
+                href="/paket"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-stone-300 bg-white/60 px-7 text-base font-semibold text-stone-900 backdrop-blur transition-all hover:border-brand-700 hover:bg-white hover:text-brand-800"
+              >
                 Lihat Katalog Paket
-              </Button>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -187,10 +193,13 @@ export default function Hero() {
                           1–6 orang
                         </span>
                       </div>
-                      <button className="inline-flex items-center gap-1 rounded-full bg-brand-800 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-brand-900">
+                      <Link
+                        href="/booking?package=borobudur-sunrise-kraton"
+                        className="inline-flex items-center gap-1 rounded-full bg-brand-800 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-brand-900"
+                      >
                         Booking
                         <ArrowRight className="h-3 w-3" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

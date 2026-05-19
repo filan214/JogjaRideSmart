@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Plus, Minus, MessageCircle } from 'lucide-react';
 import Container from '@/components/ui/Container';
 import { faqs } from '@/lib/mock-data';
+import { buildWaUrl } from '@/lib/whatsapp';
 import { cn } from '@/lib/utils';
 
 export default function FAQ() {
@@ -27,7 +28,9 @@ export default function FAQ() {
               Tidak menemukan jawabannya? Tim kami siap membantu.
             </p>
             <a
-              href="#"
+              href={buildWaUrl('Halo Jogja Ride! Saya ada pertanyaan.')}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 hover:bg-brand-50 transition-colors"
             >
               <MessageCircle className="h-4 w-4" />

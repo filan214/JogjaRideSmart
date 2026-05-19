@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Mountain,
@@ -76,37 +77,40 @@ export default function Categories() {
               Pilih kategori sesuai gaya wisatamu.
             </h2>
           </div>
-          <a
-            href="#packages"
+          <Link
+            href="/paket"
             className="hidden items-center gap-1 text-sm font-semibold text-brand-800 hover:text-brand-900 md:inline-flex"
           >
             Lihat semua paket
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-6">
           {categories.map((cat, idx) => (
-            <motion.a
+            <motion.div
               key={cat.name}
-              href="#packages"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: idx * 0.05 }}
-              className="group relative overflow-hidden rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-stone-300"
             >
-              <div
-                className={`grid h-12 w-12 place-items-center rounded-xl ${cat.bg} ${cat.hover} transition-colors`}
+              <Link
+                href="/paket"
+                className="group relative block overflow-hidden rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-stone-300"
               >
-                <cat.icon className={`h-6 w-6 ${cat.iconColor}`} />
-              </div>
-              <div className="mt-4 text-sm font-semibold text-stone-900">{cat.name}</div>
-              <div className="mt-0.5 text-xs text-stone-500">{cat.count}</div>
-              <div className="absolute right-4 top-4 opacity-0 transition-all group-hover:right-3 group-hover:opacity-100">
-                <ArrowRight className="h-4 w-4 text-stone-400" />
-              </div>
-            </motion.a>
+                <div
+                  className={`grid h-12 w-12 place-items-center rounded-xl ${cat.bg} ${cat.hover} transition-colors`}
+                >
+                  <cat.icon className={`h-6 w-6 ${cat.iconColor}`} />
+                </div>
+                <div className="mt-4 text-sm font-semibold text-stone-900">{cat.name}</div>
+                <div className="mt-0.5 text-xs text-stone-500">{cat.count}</div>
+                <div className="absolute right-4 top-4 opacity-0 transition-all group-hover:right-3 group-hover:opacity-100">
+                  <ArrowRight className="h-4 w-4 text-stone-400" />
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </Container>

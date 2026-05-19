@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Sparkles, ArrowRight, MessageCircle } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
+import { buildWaUrl } from '@/lib/whatsapp';
 
 export default function FinalCTA() {
   return (
@@ -48,19 +49,23 @@ export default function FinalCTA() {
               Gratis konsultasi, tanpa kartu kredit.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Button size="lg" variant="accent">
+              <Link
+                href="/trip-advisor"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-accent-500 px-7 text-base font-semibold text-white shadow-lg shadow-accent-900/30 transition-all hover:bg-accent-600 hover:-translate-y-0.5"
+              >
                 <Sparkles className="h-4 w-4" />
                 Tanya AI Advisor
                 <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 bg-white/10 text-white hover:border-white/60 hover:bg-white/20 hover:text-white"
+              </Link>
+              <a
+                href={buildWaUrl('Halo Jogja Ride! Saya ingin tanya tentang paket wisata.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 text-base font-semibold text-white backdrop-blur transition-all hover:border-white/60 hover:bg-white/20 hover:-translate-y-0.5"
               >
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Kami
-              </Button>
+              </a>
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-stone-300">

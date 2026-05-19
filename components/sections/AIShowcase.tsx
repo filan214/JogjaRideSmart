@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Sparkles, ArrowRight, Send, Check } from 'lucide-react';
 import Container from '@/components/ui/Container';
-import Button from '@/components/ui/Button';
 
 const features = [
   'Rekomendasi berdasarkan data paket nyata',
@@ -58,11 +58,14 @@ export default function AIShowcase() {
               ))}
             </ul>
             <div className="mt-10">
-              <Button size="lg" variant="accent">
+              <Link
+                href="/trip-advisor"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-accent-500 px-7 text-base font-semibold text-white shadow-lg shadow-accent-900/20 transition-all hover:bg-accent-600 hover:-translate-y-0.5"
+              >
                 <Sparkles className="h-4 w-4" />
                 Coba AI Advisor Sekarang
                 <ArrowRight className="h-4 w-4" />
-              </Button>
+              </Link>
             </div>
           </motion.div>
 
@@ -141,9 +144,12 @@ export default function AIShowcase() {
                             <span className="text-sm font-bold text-brand-800">
                               Rp 850.000
                             </span>
-                            <button className="inline-flex items-center gap-1 rounded-full bg-brand-800 px-3 py-1 text-[11px] font-semibold text-white hover:bg-brand-900">
+                            <Link
+                              href="/booking?package=borobudur-sunrise-kraton"
+                              className="inline-flex items-center gap-1 rounded-full bg-brand-800 px-3 py-1 text-[11px] font-semibold text-white hover:bg-brand-900"
+                            >
                               Booking <ArrowRight className="h-3 w-3" />
-                            </button>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -174,9 +180,12 @@ export default function AIShowcase() {
                             <span className="text-sm font-bold text-brand-800">
                               Rp 950.000
                             </span>
-                            <button className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-3 py-1 text-[11px] font-semibold text-stone-700 hover:bg-stone-200">
+                            <Link
+                              href="/paket/prambanan-ramayana-ballet"
+                              className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-3 py-1 text-[11px] font-semibold text-stone-700 hover:bg-stone-200"
+                            >
                               Detail
-                            </button>
+                            </Link>
                           </div>
                         </div>
                       </div>
